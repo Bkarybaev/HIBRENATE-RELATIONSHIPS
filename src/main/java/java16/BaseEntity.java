@@ -1,4 +1,4 @@
-package java16.onetomany;
+package java16;
 
 import jakarta.persistence.*;
 

@@ -1,11 +1,16 @@
-package java16.onetoone;
+package java16.onetomany;
 
 import jakarta.persistence.*;
+import java16.BaseEntity;
+
+import java.util.List;
 
 @Entity
-public class Country {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "gencountry_id")
-    @SequenceGenerator(name = "gencountry_id", sequenceName = "country_id", allocationSize = 1)
-    private Long id;
+@SequenceGenerator(name = "gencountry_id", sequenceName = "country_id", allocationSize = 1)
+
+public class Country extends BaseEntity {
+    private String CountryName;
+
+    @OneToMany(mappedBy = "Country")
+    private List<City> CityList;
 }
